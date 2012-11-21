@@ -1,0 +1,21 @@
+Are You A Human?
+================
+
+This CodeIgniter Spark is simply a slightly modified version of the "Are You A Human?" PHP library (http://portal.areyouahuman.com/installation/php) for the CodeIgniter Sparks collection.
+
+To use this Spark, the instructions are essentially the same as the PHP library:
+
+- Register your "Are You A Human" account, retreive your Publisher and Scoring Keys from your Dashboard
+- Enter this information into the config/ayah_config.php file included with this Spark
+- Add your site, you can set the platform to PHP, although I believe this is just designed to provide convenient access to installation instructions
+- Load the Spark in your controller: **$this->load->spark('ayah/1.1.6')**
+- Render the captcha in your form: **echo $this->ayah->getPublisherHTML();**
+- If the captcha is not rendering you can enable debugging to see useful feedback rendered to the screen: **$this->ayah->debug_mode(TRUE);**
+- In your form processing verify that the captcha input was entered correctly:
+	
+	    if ($this->ayah->scoreResult()) {
+			// captcha input correct
+		}
+		else {
+			// capthca input incorrect
+		}
